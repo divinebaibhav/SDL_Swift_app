@@ -13,6 +13,7 @@
 		4CA97DDF1CC7633F008602AD /* SDLApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CA97DDD1CC7633F008602AD /* SDLApp.xcdatamodeld */; };
 		4CA97DE11CC7633F008602AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CA97DE01CC7633F008602AD /* Assets.xcassets */; };
 		4CA97DE41CC7633F008602AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA97DE21CC7633F008602AD /* LaunchScreen.storyboard */; };
+		C5A107049499FAB763E89282 /* libPods-SDLApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E50AC61D46DC71B3B95233D /* libPods-SDLApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		4CA97DE01CC7633F008602AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CA97DE31CC7633F008602AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CA97DE51CC7633F008602AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E50AC61D46DC71B3B95233D /* libPods-SDLApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDLApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9893D3D30A5874E3C6525419 /* Pods-SDLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDLApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDLApp/Pods-SDLApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DFECA12FCA183E23C654114E /* Pods-SDLApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDLApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDLApp/Pods-SDLApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A107049499FAB763E89282 /* libPods-SDLApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				4CA97DD51CC7633F008602AD /* SDLApp */,
 				4CA97DD41CC7633F008602AD /* Products */,
+				FADF0EB20BB8320879E15878 /* Pods */,
+				8D836254FDE5949FD60AA725 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = SDLApp;
 			sourceTree = "<group>";
 		};
+		8D836254FDE5949FD60AA725 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E50AC61D46DC71B3B95233D /* libPods-SDLApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FADF0EB20BB8320879E15878 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9893D3D30A5874E3C6525419 /* Pods-SDLApp.debug.xcconfig */,
+				DFECA12FCA183E23C654114E /* Pods-SDLApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CA97DE81CC7633F008602AD /* Build configuration list for PBXNativeTarget "SDLApp" */;
 			buildPhases = (
+				39A914C795B62CFFF769C1FD /* Check Pods Manifest.lock */,
 				4CA97DCF1CC7633F008602AD /* Sources */,
 				4CA97DD01CC7633F008602AD /* Frameworks */,
 				4CA97DD11CC7633F008602AD /* Resources */,
+				2CF5C60CC7CDC2514FC77D68 /* Embed Pods Frameworks */,
+				A18A81AD1E86FA755BF4DA39 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CF5C60CC7CDC2514FC77D68 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDLApp/Pods-SDLApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39A914C795B62CFFF769C1FD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A18A81AD1E86FA755BF4DA39 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDLApp/Pods-SDLApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4CA97DCF1CC7633F008602AD /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		4CA97DE91CC7633F008602AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9893D3D30A5874E3C6525419 /* Pods-SDLApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SDLApp/Info.plist;
@@ -260,6 +336,7 @@
 		};
 		4CA97DEA1CC7633F008602AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFECA12FCA183E23C654114E /* Pods-SDLApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SDLApp/Info.plist;
@@ -288,6 +365,7 @@
 				4CA97DEA1CC7633F008602AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
