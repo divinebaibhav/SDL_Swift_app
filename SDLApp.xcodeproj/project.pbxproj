@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C66E5F71CC9F8E300A19A12 /* BHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C66E5F61CC9F8E300A19A12 /* BHelper.swift */; };
 		4CA97DD71CC7633F008602AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA97DD61CC7633F008602AD /* AppDelegate.swift */; };
 		4CA97DD91CC7633F008602AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA97DD81CC7633F008602AD /* ViewController.swift */; };
 		4CA97DDC1CC7633F008602AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA97DDA1CC7633F008602AD /* Main.storyboard */; };
 		4CA97DDF1CC7633F008602AD /* SDLApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CA97DDD1CC7633F008602AD /* SDLApp.xcdatamodeld */; };
 		4CA97DE11CC7633F008602AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CA97DE01CC7633F008602AD /* Assets.xcassets */; };
 		4CA97DE41CC7633F008602AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA97DE21CC7633F008602AD /* LaunchScreen.storyboard */; };
+		4CA97DED1CC79189008602AD /* SDLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA97DEC1CC79189008602AD /* SDLManager.swift */; };
+		4CA97DF31CC7A066008602AD /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA97DF21CC7A066008602AD /* GlobalConstants.swift */; };
 		C5A107049499FAB763E89282 /* libPods-SDLApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E50AC61D46DC71B3B95233D /* libPods-SDLApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C66E5F61CC9F8E300A19A12 /* BHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BHelper.swift; sourceTree = "<group>"; };
 		4CA97DD31CC7633F008602AD /* SDLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA97DD61CC7633F008602AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CA97DD81CC7633F008602AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +29,9 @@
 		4CA97DE01CC7633F008602AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CA97DE31CC7633F008602AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CA97DE51CC7633F008602AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CA97DEC1CC79189008602AD /* SDLManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDLManager.swift; sourceTree = "<group>"; };
+		4CA97DEE1CC79AEE008602AD /* SDLApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SDLApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CA97DF21CC7A066008602AD /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalConstants.swift; path = ../GlobalConstants.swift; sourceTree = "<group>"; };
 		7E50AC61D46DC71B3B95233D /* libPods-SDLApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDLApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9893D3D30A5874E3C6525419 /* Pods-SDLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDLApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDLApp/Pods-SDLApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFECA12FCA183E23C654114E /* Pods-SDLApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDLApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDLApp/Pods-SDLApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -42,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C66E5F51CC9EA5400A19A12 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4C66E5F61CC9F8E300A19A12 /* BHelper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		4CA97DCA1CC7633F008602AD = {
 			isa = PBXGroup;
 			children = (
@@ -63,15 +78,27 @@
 		4CA97DD51CC7633F008602AD /* SDLApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C66E5F51CC9EA5400A19A12 /* Helper */,
+				4CA97DEB1CC7916C008602AD /* SDL */,
 				4CA97DD61CC7633F008602AD /* AppDelegate.swift */,
+				4CA97DF21CC7A066008602AD /* GlobalConstants.swift */,
 				4CA97DD81CC7633F008602AD /* ViewController.swift */,
 				4CA97DDA1CC7633F008602AD /* Main.storyboard */,
 				4CA97DE01CC7633F008602AD /* Assets.xcassets */,
 				4CA97DE21CC7633F008602AD /* LaunchScreen.storyboard */,
 				4CA97DE51CC7633F008602AD /* Info.plist */,
 				4CA97DDD1CC7633F008602AD /* SDLApp.xcdatamodeld */,
+				4CA97DEE1CC79AEE008602AD /* SDLApp-Bridging-Header.h */,
 			);
 			path = SDLApp;
+			sourceTree = "<group>";
+		};
+		4CA97DEB1CC7916C008602AD /* SDL */ = {
+			isa = PBXGroup;
+			children = (
+				4CA97DEC1CC79189008602AD /* SDLManager.swift */,
+			);
+			name = SDL;
 			sourceTree = "<group>";
 		};
 		8D836254FDE5949FD60AA725 /* Frameworks */ = {
@@ -126,6 +153,11 @@
 				TargetAttributes = {
 					4CA97DD21CC7633F008602AD = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -214,6 +246,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CA97DD91CC7633F008602AD /* ViewController.swift in Sources */,
+				4CA97DED1CC79189008602AD /* SDLManager.swift in Sources */,
+				4C66E5F71CC9F8E300A19A12 /* BHelper.swift in Sources */,
+				4CA97DF31CC7A066008602AD /* GlobalConstants.swift in Sources */,
 				4CA97DD71CC7633F008602AD /* AppDelegate.swift in Sources */,
 				4CA97DDF1CC7633F008602AD /* SDLApp.xcdatamodeld in Sources */,
 			);
@@ -327,10 +362,13 @@
 			baseConfigurationReference = 9893D3D30A5874E3C6525419 /* Pods-SDLApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SDLApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ESS.SDLApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SDLApp/SDLApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -339,10 +377,12 @@
 			baseConfigurationReference = DFECA12FCA183E23C654114E /* Pods-SDLApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SDLApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ESS.SDLApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SDLApp/SDLApp-Bridging-Header.h";
 			};
 			name = Release;
 		};

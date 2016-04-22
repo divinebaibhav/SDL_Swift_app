@@ -9,9 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    //MARK:View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SDLManager .sharedManager.startProxy()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
