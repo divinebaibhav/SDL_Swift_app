@@ -14,7 +14,7 @@ class SDLManager: NSObject,SDLProxyListener {
     static let sharedManager:SDLManager = SDLManager()
     
     var  proxy: SDLProxy = SDLProxy();
-    let correlationID:Int = 0
+    var correlationID:Int = 0
     let nextCorrelationID:Int = 0
     var firstHmiFull:Bool = true;
     var firstHmiNotNone:Bool = true;
@@ -56,7 +56,6 @@ class SDLManager: NSObject,SDLProxyListener {
                 case "tcpl":
                 proxy = SDLProxyFactory .buildSDLProxyWithListener(self, tcpIPAddress: nil, tcpPort: prefs.objectForKey("port") as! String)
                 break
-                
                 case "tcps":
                  proxy = SDLProxyFactory .buildSDLProxyWithListener(self, tcpIPAddress: prefs.objectForKey("ipaddress") as! String, tcpPort: prefs.objectForKey("port") as! String)
                  break;
@@ -68,39 +67,51 @@ class SDLManager: NSObject,SDLProxyListener {
         }
         else{
             NSLog("This is device mode....");
+            //SDLConnectionTypeiAP
             proxy = SDLProxyFactory.buildSDLProxyWithListener(self)
          }
 
     }
     
-    /**
-    *  Delegate method that runs when driver distraction mode changes.
-    */
+    
+    //Delegate method that runs when driver distraction mode changes.
     func onOnDriverDistraction(notification: SDLOnDriverDistraction!) {
         
     }
     
     
-    /**
-     *     //3rd Method to be called
-     *  Delegate method that runs when the app's HMI state on SDL changes.
-     */
+    // 3. Delegate method that runs when the app's HMI state on SDL changes.
     func onOnHMIStatus(notification: SDLOnHMIStatus!) {
+        print("onOnHMIStatus")
         
-//        OnHMIStatus (notification)
-//            {
-//                audioStreamingState = "NOT_AUDIBLE";
-//                hmiLevel = NONE;
-//                systemContext = MAIN;
-//        }
+        switch notification.hmiLevel
+        {
+        case SDLHMILevel.FULL():
+            
+            if isFirstHmiFull
+            {
+                firstHmiFull = false
+                sdlShowAndSpeakWelcomeMessage("Hi Baibhav")
+                sdlSubscribeVehicleData()
+
+            }
+            break;
+            
+            
+        case SDLHMILevel.FULL():
+            
+            break;
+        default:    break;
+            
+        }
+        
+        
+
     }
     
     
-    /**
-    *  2nd Method to be called
-    *  onProxyOpened is called when a connection is established between the head
-    * unit and your application.
-    */
+   
+   //2.called when a connection is established between the head unit and in app
     func onProxyOpened() {
         NSLog("This is onProxyOpened....");
         
@@ -119,11 +130,20 @@ class SDLManager: NSObject,SDLProxyListener {
      *  Req. if a connection disconnects for any reason,
      */
     func onProxyClosed() {
-        
         // Notify the app delegate to clear the lockscreen
      hsdl_postNotification(k.NotificationKey.HSDLDisconnectNotification, info: [])
       self.proxy.dispose()
 
+    }
+    
+    
+    //MARK: Other delegates
+    
+    /**
+    *  Delegate method that runs when lockscreen status changes.
+    */
+    func onOnLockScreenNotification(notification: SDLOnLockScreenStatus!) {
+        hsdl_postNotification(k.NotificationKey.HSDLLockScreenStatusNotification, info: notification)
     }
     
     
@@ -149,8 +169,41 @@ class SDLManager: NSObject,SDLProxyListener {
 }
 
 
+//MARK: RPC Methods implimentation
+extension SDLManager{
+    /**
+    *  Auto-increment and return the next correlation ID for an RPC.
+    *
+    *  @return The next correlation ID as an NSNumber.
+    */
+    func hsdl_getNextCorrelationId()->(NSNumber) {
+   
+           // NSNumber(unsignedInteger: ++self.correlationID)
+        
+        return ++self.correlationID
+    }
 
-//MARk: Utils
+    func sdlSubscribeVehicleData(){
+        
+    }
+    
+    
+    func sdlShowAndSpeakWelcomeMessage(msg:String)
+    {
+        //to show
+        let show:SDLShow = SDLShow()
+        show.mainField1 = msg
+        show.alignment = SDLTextAlignment.CENTERED()
+        show.correlationID = hsdl_getNextCorrelationId()
+        self.proxy .sendRPC(show)
+        
+        let speak:SDLSpeak = SDLRPCRequestFactory.buildSpeakWithTTS(msg, correlationID: hsdl_getNextCorrelationId());
+        self.proxy .sendRPC(speak)
+    }
+}
+
+
+//MARK: Utils
 extension SDLManager
 {
     func isNotNull(object:AnyObject?) -> Bool {
